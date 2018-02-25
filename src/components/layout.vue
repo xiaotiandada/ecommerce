@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div class="app-head">
       <div class="app-head-inner">
          <img class="head-logo" src="../assets/logo.png">
@@ -20,7 +20,7 @@
       </keep-alive>
     </div>
     <div class="app-foot">
-       <p>© 2016 vuejs 数字电商产品平台 MIT</p>
+       <p>© 2018 vuejs 数字电商产品平台 MIT</p>
     </div>
   </div>
 </template>
@@ -40,8 +40,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" rel="stylesheet/less">
 body{
-  background: #ececec;
-  font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+  // background: #363636;
 }
 .app-head{
   background: #363636;
