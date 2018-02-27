@@ -1,0 +1,25 @@
+{
+  "getNewsList": [
+    {
+      "id": 1,
+      "title": "数据统计",
+      "url": "http://starcraft.com"
+    },
+    {
+      "id": 2,
+      "title": "数据预测",
+      "url": "http://warcraft.com"
+    },
+    {
+      "id": 3,
+      "title": "流量分析",
+      "url": "http://overwatch.com"
+    },
+    {
+      "id": 4,
+      "title": "广告发布",
+      "url": "http://hearstone.com"
+    }
+  ],
+  "getuserlist" : "xiaotian"
+}

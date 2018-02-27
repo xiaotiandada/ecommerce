@@ -17,20 +17,49 @@
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <ul>
-          
+          <li v-for="item in newsList">
+            <a :href="item.url" class="new-item">{{ item.title }}</a>
+          </li>
         </ul>
       </div>
     </div>
     <div class="index-right">
-      <div class="index-board-list"></div>
+      <slide-show :slides="slides"></slide-show>
+      <div class="index-board-list">
+        <div
+        class="index-board-item"
+        v-for="(item, index) in boardList"
+        :class="[{'line-last' : index % 2 !== 0},
+        'index-board-'+item.id]">
+          <div class="index-board-item-inner">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <div class="index-board-button">
+              <a href="" class="button">立即购买</a>
+            </div> 
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import 'normalize.css'  
+import slideShow from '@/components/slideShow'
 export default {
   name: 'IndexPage',
+  components: {
+    slideShow
+  },
+  created () {
+    this.$http.get('/api/getNewsList')
+    .then((res) => {
+      this.newsList = res.data
+      },(err) => {
+        console.log( err )        
+      })
+  },
   data () {
     return {
       productList: {
@@ -79,7 +108,60 @@ export default {
             }
           ]
         }
-      }
+      },
+      newsList: [],
+       boardList: [
+        {
+          title: '开放产品',
+          description: '开放产品是一款开放产品',
+          id: 'car',
+          toKey: 'analysis',
+          saleout: false
+        },
+        {
+          title: '品牌营销',
+          description: '品牌营销帮助你的产品更好地找到定位',
+          id: 'earth',
+          toKey: 'count',
+          saleout: false
+        },
+        {
+          title: '使命必达',
+          description: '使命必达快速迭代永远保持最前端的速度',
+          id: 'loud',
+          toKey: 'forecast',
+          saleout: true
+        },
+        {
+          title: '勇攀高峰',
+          description: '帮你勇闯高峰，到达事业的顶峰',
+          id: 'hill',
+          toKey: 'publish',
+          saleout: false
+        }
+      ],
+      slides: [
+        {
+          src: require('../assets/slideShow/pic1.jpg'),
+          title: 'xxx1',
+          href: 'detail/analysis'
+        },
+        {
+          src: require('../assets/slideShow/pic2.jpg'),
+          title: 'xxx2',
+          href: 'detail/count'
+        },
+        {
+          src: require('../assets/slideShow/pic3.jpg'),
+          title: 'xxx3',
+          href: 'http://xxx.xxx.com'
+        },
+        {
+          src: require('../assets/slideShow/pic4.jpg'),
+          title: 'xxx4',
+          href: 'detail/forecast'
+        }
+      ]
     }
   }
 }
@@ -91,6 +173,8 @@ export default {
   width: 1200px;
   margin: 0 auto;
   overflow: hidden;
+}
+
   .index-left{
     float: left;
     width: 300px;
@@ -155,7 +239,65 @@ export default {
     width: 900px;
     .index-board-item{
       overflow: hidden;
+      float: left;
+      width: 398px;
+      background: #fff;
+      box-shadow: 0 0 1px #ddd;
+      padding: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    .index-board-item-inner {
+      min-height: 125px;
+      padding-left: 120px;
+      h2{
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 15px;
+      }
+      p{
+        font-size: 14px;
+        color: #000;
+      }
+       .index-board-button {
+        margin-top: 20px;
+        a.button{
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          background: #54c18d;
+          display: block;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+    }
+
+    .line-last {
+      margin-right: 0;
     }
   }
+
+
+.index-board-car .index-board-item-inner{
+  background: url(../assets/images/1.png) no-repeat;
+}
+.index-board-loud .index-board-item-inner{
+  background: url(../assets/images/2.png) no-repeat;
+}
+.index-board-earth .index-board-item-inner{
+  background: url(../assets/images/3.png) no-repeat;
+}
+.index-board-hill .index-board-item-inner{
+  background: url(../assets/images/4.png) no-repeat;
+}
+.new-item{
+  display: inline-block;
+  width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>
