@@ -5,11 +5,14 @@
          <img class="head-logo" src="../assets/logo.png">
          <div class="head-nav">
            <ul class="nav-list">
-             <li>登录</li>
-             <li class="nav-pile">|</li>
-             <li>注册</li>
+             <li>{{ username }}</li>
+             <li v-if="username !== ''" class="nav-pile">|</li>             
+             <li v-if="username === ''" @click="logClick">登录</li>
+             <li v-if="username !== ''" @click="logQuit">退出</li>
+             <li v-if="username === ''" class="nav-pile">|</li>
+             <li v-if="username === ''" @click="regClick">注册</li>
              <li class="nav-pile">|</li>             
-             <li>关于</li>
+             <li @click="aboutClick">关于</li>
            </ul>
          </div>
       </div>
@@ -22,16 +25,56 @@
     <div class="app-foot">
        <p>© 2018 vuejs 数字电商产品平台 MIT</p>
     </div>
+    <sign :is-show="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
+     <log-form @has-log="onSuccessLog"></log-form>
+    </sign>
+    <sign :is-show="isShowRegDialog" @on-close="closeDialog('isShowRegDialog')">
+      <reg-form></reg-form>
+    </sign>
+    <sign :is-show="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')">
+      <about-form></about-form>
+    </sign>
   </div>
 </template>
 
 <script>
 import 'normalize.css'  
+import sign from '@/components/sign'
+import logForm from '@/components/logForm'
+import regForm from '@/components/regForm'
+import aboutForm from '@/components/aboutForm'
 export default {
   name: 'Layout',
+  components: {
+    sign,
+    logForm,
+    regForm,
+    aboutForm
+  },
   data () {
     return {
-      
+      isShowLogDialog: false,
+      isShowRegDialog: false,
+      isShowAboutDialog: false,
+      username: ''
+    }
+  },
+  methods:{
+    logClick(){
+      this.isShowLogDialog = true
+    },
+    regClick(){
+      this.isShowRegDialog = true
+    },
+    aboutClick(){
+      this.isShowAboutDialog = true
+    },
+    closeDialog(attr){
+      this[attr] = false
+    },
+    onSuccessLog(data){
+      this.closeDialog('isShowLogDialog')      
+      this.username = data.username
     }
   }
 }

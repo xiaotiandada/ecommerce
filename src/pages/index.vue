@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="index-right">
-      <slide-show :slides="slides"></slide-show>
+      <slide-show :slides="slides" :invTime="invTime" @onChange="doSomethingOnSlidChange"></slide-show>
       <div class="index-board-list">
         <div
         class="index-board-item"
@@ -59,6 +59,12 @@ export default {
       },(err) => {
         console.log( err )        
       })
+  },
+  methods: {
+    // 子组件给父组件传值
+    doSomethingOnSlidChange(index){
+      // console.log('doSomethingOnSlidChange' + index);
+    }
   },
   data () {
     return {
@@ -140,6 +146,7 @@ export default {
           saleout: false
         }
       ],
+      invTime: 2000,
       slides: [
         {
           src: require('../assets/slideShow/pic1.jpg'),
