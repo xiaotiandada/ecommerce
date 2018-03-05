@@ -73,7 +73,7 @@ export default {
       this[attr] = false
     },
     onSuccessLog(data){
-      this.closeDialog('isShowLogDialog')      
+      this.closeDialog('isShowLogDialog')
       this.username = data.username
     }
   }

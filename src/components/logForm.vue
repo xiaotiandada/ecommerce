@@ -79,7 +79,6 @@ export default {
     onLogin(){
       if(!this.userErrors.status || !this.passwordErrors.status){
         this.errorText = '部分选项没有通过，请查看账号和密码'
-        console.log(12)
       } else {
         this.errorText = ''
         this.$http.get('/api/login')
@@ -97,6 +96,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" rel="stylesheet/less">
 .g-form {
+  text-align: center;
 
 }
 .g-form-line {
