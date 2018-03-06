@@ -13,7 +13,7 @@
             </ul>
             <div v-if="!product.last" class="hr"></div>          
         </template>
-      </div>
+      </div>onChange
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <ul>
@@ -35,7 +35,7 @@
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
             <div class="index-board-button">
-              <a href="" class="button">立即购买</a>
+              <a :href="item.toKey" class="button">立即购买</a>
             </div> 
           </div>
         </div>
@@ -74,20 +74,20 @@ export default {
           list: [
             {
               name: '数据统计',
-              url: 'http://starcraft.com'
+              url: 'detail/count'
             },
             {
               name: '数据预测',
-              url: 'http://warcraft.com',
+              url: 'detail/forecast',
               hot: true
             },
             {
               name: '流量分析',
-              url: 'http://overwatch.com'
+              url: 'detail/analysis'
             },
             {
               name: '广告发布',
-              url: 'http://hearstone.com'
+              url: 'detail/publish'
             }
           ]
         },
@@ -97,20 +97,20 @@ export default {
           list: [
             {
               name: '91助手',
-              url: 'http://weixin.com'
+              url: 'http://github.com/xiaotiandada'
             },
             {
               name: '产品助手',
-              url: 'http://twitter.com',
+              url: 'http://github.com/xiaotiandada',
               hot: true
             },
             {
               name: '智能地图',
-              url: 'http://maps.com'
+              url: 'http://github.com/xiaotiandada'
             },
             {
               name: '团队语音',
-              url: 'http://phone.com'
+              url: 'http://github.com/xiaotiandada'
             }
           ]
         }
@@ -121,28 +121,28 @@ export default {
           title: '开放产品',
           description: '开放产品是一款开放产品',
           id: 'car',
-          toKey: 'analysis',
+          toKey: '/detail/analysis',
           saleout: false
         },
         {
           title: '品牌营销',
           description: '品牌营销帮助你的产品更好地找到定位',
           id: 'earth',
-          toKey: 'count',
+          toKey: '/detail/count',
           saleout: false
         },
         {
           title: '使命必达',
           description: '使命必达快速迭代永远保持最前端的速度',
           id: 'loud',
-          toKey: 'forecast',
+          toKey: '/detail/forecast',
           saleout: true
         },
         {
           title: '勇攀高峰',
           description: '帮你勇闯高峰，到达事业的顶峰',
           id: 'hill',
-          toKey: 'publish',
+          toKey: '/detail/publish',
           saleout: false
         }
       ],
@@ -150,23 +150,23 @@ export default {
       slides: [
         {
           src: require('../assets/slideShow/pic1.jpg'),
-          title: 'xxx1',
-          href: 'detail/analysis'
-        },
-        {
-          src: require('../assets/slideShow/pic2.jpg'),
-          title: 'xxx2',
+          title: '数据统计',
           href: 'detail/count'
         },
         {
+          src: require('../assets/slideShow/pic2.jpg'),
+          title: '数据预测',
+          href: 'detail/forecast'
+        },
+        {
           src: require('../assets/slideShow/pic3.jpg'),
-          title: 'xxx3',
-          href: 'http://xxx.xxx.com'
+          title: '流量分析',
+          href: 'detail/analysis'
         },
         {
           src: require('../assets/slideShow/pic4.jpg'),
-          title: 'xxx4',
-          href: 'detail/forecast'
+          title: '广告发布',
+          href: 'detail/publish'
         }
       ]
     }

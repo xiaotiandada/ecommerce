@@ -2,7 +2,9 @@
   <div>
     <div class="app-head">
       <div class="app-head-inner">
+        <router-link :to="{path: '/'}">
          <img class="head-logo" src="../assets/logo.png">
+        </router-link>
          <div class="head-nav">
            <ul class="nav-list">
              <li>{{ username }}</li>
@@ -75,6 +77,9 @@ export default {
     onSuccessLog(data){
       this.closeDialog('isShowLogDialog')
       this.username = data.username
+    },
+    logQuit(){
+      alert('禁止退出,测试')
     }
   }
 }

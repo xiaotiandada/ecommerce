@@ -136,7 +136,7 @@ export default {
 .g-form-btn a{
   display: block;
   color: #fff;
-  margin: 20px 0;
+  margin: 20px auto 0;
   padding: 6px;
   font-size: 16px;
   text-align: center;

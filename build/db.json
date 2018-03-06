@@ -3,22 +3,22 @@
     {
       "id": 1,
       "title": "数据统计",
-      "url": "http://starcraft.com"
+      "url": "detail/count"
     },
     {
       "id": 2,
       "title": "数据预测",
-      "url": "http://warcraft.com"
+      "url": "detail/forecast"
     },
     {
       "id": 3,
       "title": "流量分析",
-      "url": "http://overwatch.com"
+      "url": "detail/analysis"
     },
     {
       "id": 4,
       "title": "广告发布",
-      "url": "http://hearstone.com"
+      "url": "detail/publish"
     }
   ],
   "login" : {
