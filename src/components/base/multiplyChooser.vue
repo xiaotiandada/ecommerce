@@ -56,6 +56,10 @@ export default {
   position: relative;
   display: inline-block;
 }
+.chooser-list{
+  margin: 0;
+  padding: 0;
+}
 .chooser-list li{
   display: inline-block;
   border: 1px solid #e3e3e3;

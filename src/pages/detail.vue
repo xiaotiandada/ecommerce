@@ -92,6 +92,7 @@ export default {
   text-align: left;
   padding: 10px 15px;
   cursor: pointer;
+  list-style: none;
 }
 .product-board li.active,
 .product-board li:hover {

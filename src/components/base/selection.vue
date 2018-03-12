@@ -81,6 +81,9 @@ export default {
   border-bottom: 1px solid #e3e3e3;
   z-index: 5;
 }
+.selection-list ul{
+  padding: 0;
+}
 .selection-list li {
   padding: 5px 15px 5px 10px;
   border-left: 1px solid #e3e3e3;
