@@ -24,5 +24,8 @@
   "login" : {
     "username" : "xiaotian",
     "userId" : 123
+  },
+  "getPrice": {
+    "amount": 678
   }
 }

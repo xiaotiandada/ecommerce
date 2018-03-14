@@ -192,7 +192,7 @@ export default {
   },
   methods: {
     onParamChange (attr, val) {
-      this[attr] = val
+      this[attr] = val 
       this.getPrice()
     },
     getPrice () {
