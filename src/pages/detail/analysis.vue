@@ -94,7 +94,7 @@
             <td>{{ buyType.label }}</td>
             <td>{{ period.label }}</td>
             <td>
-              <span v-for="item in versions">{{ item.label }}</span>
+              <span v-for="item in versions">{{ item.label.length > 1 ? item.label　+ ' ' : item.label }}</span>
             </td>
             <td>{{ price }}</td>
           </tr>
@@ -121,7 +121,7 @@ import VChooser from '@/components/base/chooser'
 import VMulChooser from '@/components/base/multiplyChooser'
 import Dialog from '@/components/base/dialog'
 
-// import BankChooser from '@/components/bankChooser'
+import BankChooser from '@/components/bankChooser'
 import CheckOrder from '@/components/checkOrder'
 import _ from 'lodash'
 
@@ -133,7 +133,7 @@ export default {
     VChooser,
     VMulChooser,
     MyDialog: Dialog,
-    // BankChooser,
+    BankChooser,
     CheckOrder
   },
   data () {
@@ -212,6 +212,7 @@ export default {
         this.price = res.data.amount
       })
     },
+    // 开关弹窗
     showPayDialog () {
       this.isShowPayDialog = true
     },
@@ -267,6 +268,17 @@ export default {
 }
 .buy-dialog-btn {
   margin-top: 20px;
+  width: 110px;
+  height: 40px;
+  background: #54c18d;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.buy-dialog-btn:hover{
+  background: #31a36c;  
 }
 .buy-dialog-table {
   width: 100%;

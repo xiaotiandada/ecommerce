@@ -5,7 +5,7 @@
       <div class="button" @click="checkStatus">
         支付成功
       </div>
-      <div class="button" @click="checkStatus">
+      <div class="button" @click="checkStatuss">
         支付失败
       </div>
     </this-dialog>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Dialog from './base/dialog'
+import Dialog from '@/components/base/dialog'
 export default {
   components: {
     thisDialog: Dialog
@@ -52,6 +52,11 @@ export default {
         this.$emit('on-close-check-dialog')
       })
     },
+    // 选择支付失败
+    checkStatuss(){
+      this.isShowFailDialog = true
+      this.$emit('on-close-check-dialog')      
+    },
     toOrderList () {
       this.$router.push({path: '/orderList'})
     }
@@ -61,5 +66,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.button{
+  margin-top: 20px;
+  width: 110px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.button:nth-child(even){
+    background: #54c18d;
+}
 
+.button:nth-child(odd){
+  background: rgb(255, 0, 0);
+}
+.button:nth-child(even):hover{
+    background: #49a779;
+}
+
+.button:nth-child(odd):hover{
+    background: #be0202;
+}
 </style>
