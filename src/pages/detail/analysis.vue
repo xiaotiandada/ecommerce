@@ -105,9 +105,11 @@
           确认购买
         </div>
       </my-dialog>
+
       <my-dialog :is-show="isShowErrDialog" @on-close="hideErrDialog">
         支付失败！
       </my-dialog>
+
       <check-order :is-show-check-dialog="isShowCheckOrder" :order-id="orderId" @on-close-check-dialog="hideCheckOrder"></check-order>
   </div>
 </template>

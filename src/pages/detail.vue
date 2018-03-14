@@ -134,6 +134,19 @@ export default {
     display: inline-block;
     width: 75%;
 }
+.sales-board-line-right .button{
+  width: 110px;
+  height: 40px;
+  background: #54c18d;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.sales-board-line-right .button:hover{
+  background: #31a36c;
+}
 .sales-board-des {
   border-top: 20px solid #f0f2f5;
   padding: 15px 20px;

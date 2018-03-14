@@ -111,6 +111,7 @@ export default {
   text-align: left;
   padding-left: 15px;
   margin: 0;
+  font-size: 14px;line-height: 30px;
 }
 .slide-img {
   width: 100%;

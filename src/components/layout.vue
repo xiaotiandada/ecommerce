@@ -41,7 +41,7 @@
 
 <script>
 import 'normalize.css'  
-import sign from '@/components/sign'
+import sign from '@/components/base/dialog'
 import logForm from '@/components/logForm'
 import regForm from '@/components/regForm'
 import aboutForm from '@/components/aboutForm'
@@ -108,23 +108,22 @@ body{
       width: 50px;
       margin-top: 20px;
     }
+  }
+}
 
-    .head-nav{
-      float: right;
-      ul{
-        overflow: hidden;
-        margin: 0;
-        li{
-          cursor: pointer;
-          float: left;
-          list-style: none;
-        }
-      }
-      .nav-pile{
-        padding: 0 10px;
-      }
+.head-nav{
+  float: right;
+  ul{
+    overflow: hidden;
+    margin: 0;
+    li{
+      cursor: pointer;
+      float: left;
+      list-style: none;
     }
-
+  }
+  .nav-pile{
+    padding: 0 10px;
   }
 }
 .app-foot{
